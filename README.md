@@ -1,2 +1,0 @@
-# sphynx
-Scala logging library
