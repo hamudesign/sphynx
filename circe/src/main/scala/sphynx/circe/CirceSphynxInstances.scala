@@ -1,7 +1,7 @@
 package sphynx.circe
 
 import io.circe.syntax._
-import io.circe.{Encoder, JsonObject, ObjectEncoder}
+import io.circe.{Encoder, JsonObject}
 import io.circe.jackson.circeToJackson
 import net.logstash.logback.marker.{DeferredLogstashMarker, Markers}
 import sphynx.LoggingContext

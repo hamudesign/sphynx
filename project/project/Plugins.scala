@@ -19,4 +19,12 @@ object Plugins {
     private val version = "1.1.5"
     val core: ModuleID = "com.47deg"  % "sbt-microsites" % version
   }
+  object Sonatype {
+    private val version = "3.8"
+    val core: ModuleID = "org.xerial.sbt" % "sbt-sonatype" % version
+  }
+  object PGP {
+    private val version = "2.0.0"
+    val core: ModuleID = "com.jsuereth" % "sbt-pgp" % "2.0.0"
+  }
 }

@@ -6,8 +6,7 @@ lazy val commonSettings = Seq(
   organization := "design.hamu",
   version := "0.0.1",
   scalacOptions := Seq("-Xlint", "-Ywarn-unused", "-deprecation", "-Ymacro-annotations"),
-  dependencyUpdatesFailBuild := true,
-  logLevel := Level.Info
+  dependencyUpdatesFailBuild := true
 )
 
 lazy val publishSettings = Seq(
@@ -23,11 +22,24 @@ lazy val publishSettings = Seq(
       case v if v.startsWith("2.13") => Seq("-Xlint", "-Ywarn-unused", "-deprecation")
       case _ => Seq()
     }
-  }
+  },
+  homepage := Some(url("https://hamuhouse.github.io/sphynx/")),
+  licenses := List("Apache 2" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt")),
+  developers := List(
+    Developer(id = "matsudaskai", name = "Kai Matsuda", email = "", url = url("https://vangogh500.github.io/"))
+  ),
+  scmInfo := Some(
+    ScmInfo(url("https://github.com/hamuhouse/sphynx"), "scm:git@github.com:hamuhouse/sphynx.git")
+  ),
+  publishTo := sonatypePublishTo.value
 )
 
 lazy val root = project
   .in(file("."))
+  .aggregate(
+    core,
+    circe
+  )
 
 lazy val core = project
   .in(file("core"))

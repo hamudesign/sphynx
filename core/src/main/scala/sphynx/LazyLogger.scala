@@ -2,7 +2,6 @@ package sphynx
 
 import cats.effect.Sync
 
-import scala.language.experimental.macros
 import scala.reflect.ClassTag
 import org.slf4j.{LoggerFactory, Marker, Logger => Underlying}
 
