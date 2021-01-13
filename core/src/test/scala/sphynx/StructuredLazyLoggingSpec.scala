@@ -6,9 +6,12 @@ import org.scalatest.wordspec.AnyWordSpec
 
 class StructuredLazyLoggingSpec extends AnyWordSpec with Matchers with StructuredLazyLogging[IO] {
   "StructuredLazyLoggingSpec" should {
+    type IOLogger = StructuredLazyLogger[IO]
     "provide logger" in {
-      type IOLogger = StructuredLazyLogger[IO]
       logger mustBe a[IOLogger]
+    }
+    "construct logger using name" in {
+      StructuredLazyLogger[IO]("name") mustBe a[IOLogger]
     }
   }
 }
