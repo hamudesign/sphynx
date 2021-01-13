@@ -64,7 +64,7 @@ jobs:
           command: echo -e $PGP_SECRET | base64 --decode | gpg --import --no-tty --batch --yes
       - run:
           name: Publish
-          command: sbt +publishSigned
+          command: cat /dev/null | sbt +publishSigned
 
 workflows:
   version: 2
