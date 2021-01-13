@@ -1,4 +1,6 @@
-version: 2
+version: 2.1
+orbs:
+  codecov: codecov/codecov@1.1.3
 jobs:
   build:
     docker:
@@ -15,20 +17,76 @@ jobs:
             - v1-dependencies-
       - run:
           name: Compile
-          command: cat /dev/null | sbt compile
+          command: sbt compile
       - save_cache:
           paths:
             - ~/.m2
           key: v1-dependencies--{{ checksum "build.sbt" }}
       - run:
           name: Lint
-          command: cat /dev/null | sbt scalafmtCheck scalafmtCheckAll
+          command: sbt +scalafmtCheck +scalafmtCheckAll
       - run:
           name: Dependency Check
-          command: cat /dev/null | sbt dependencyUpdates
+          command: sbt +dependencyUpdates
+  test:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    working_directory: ~/repo
+    environment:
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
+    steps:
+      - checkout
       - run:
           name: Test
-          command: cat /dev/null | sbt coverage test
+          command: sbt +coverage +test
       - run:
           name: Coverage
-          command: cat /dev/null | sbt coverageReport
+          command: sbt +coverageReport +coverageAggregate
+      - store_test_results:
+          path: test-results
+      - codecov/upload:
+          file: target/*/coverage-report/cobertura.xml
+  publish:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    working_directory: ~/repo
+    environment:
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
+    steps:
+      - checkout
+      - run:
+          name: GPG Setup
+          command: ./bin/gpg-setup.sh
+      - run:
+          name: Import PGP key
+          command: echo -e $PGP_SECRET | base64 --decode | gpg --import --no-tty --batch --yes
+      - run:
+          name: Publish
+          command: sbt +publishSigned
+
+workflows:
+  version: 2
+  cicd:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
+      - test:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /.*/
+      - publish:
+          context:
+            - sonatype
+          requires:
+            - test
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/

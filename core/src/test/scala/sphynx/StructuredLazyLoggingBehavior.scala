@@ -16,14 +16,14 @@ trait StructuredLazyLoggingBehavior extends LazyLoggingBehavior { this: AnyWordS
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockErrorEnabledLogger(marker, msg))
         .structuredError(ctx, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log structured error level log given context, message, and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockErrorEnabledLogger(marker, msg, cause))
         .structuredError(ctx, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 
@@ -32,14 +32,14 @@ trait StructuredLazyLoggingBehavior extends LazyLoggingBehavior { this: AnyWordS
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockWarnEnabledLogger(marker, msg))
         .structuredWarn(ctx, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log structured warn level log given context, message, and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockWarnEnabledLogger(marker, msg, cause))
         .structuredWarn(ctx, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 
@@ -48,14 +48,14 @@ trait StructuredLazyLoggingBehavior extends LazyLoggingBehavior { this: AnyWordS
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockWarnEnabledLogger(marker, msg))
         .structuredWarn(ctx, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log structured info level log given context, message, and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockWarnEnabledLogger(marker, msg, cause))
         .structuredWarn(ctx, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 
@@ -64,14 +64,14 @@ trait StructuredLazyLoggingBehavior extends LazyLoggingBehavior { this: AnyWordS
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockDebugEnabledLogger(marker, msg))
         .structuredDebug(ctx, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log structured debug level log given context, message, and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockDebugEnabledLogger(marker, msg, cause))
         .structuredDebug(ctx, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 
@@ -80,14 +80,14 @@ trait StructuredLazyLoggingBehavior extends LazyLoggingBehavior { this: AnyWordS
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockTraceEnabledLogger(marker, msg))
         .structuredTrace(ctx, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log structured trace level log given context, message, and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockTraceEnabledLogger(marker, msg, cause))
         .structuredTrace(ctx, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 

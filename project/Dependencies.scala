@@ -9,7 +9,7 @@ object Dependencies {
   }
 
   object Cats {
-    private val version = "2.1.1"
+    private val version = "2.3.1"
     val core = "org.typelevel" %% "cats-core" % version
     val effect = "org.typelevel" %% "cats-effect" % version
   }
@@ -25,8 +25,8 @@ object Dependencies {
   }
 
   object Logstash {
-    private val version = "6.1"
-    val encoder = "net.logstash.logback" % "logstash-logback-encoder" % "6.1"
+    private val version = "6.6"
+    val encoder = "net.logstash.logback" % "logstash-logback-encoder" % version
   }
 
   object Jackson {
@@ -42,7 +42,7 @@ object Dependencies {
   }
 
   object Scalatest {
-    private val version = "3.2.0"
+    private val version = "3.2.3"
     val core: ModuleID = "org.scalatest" %% "scalatest" % version
   }
 

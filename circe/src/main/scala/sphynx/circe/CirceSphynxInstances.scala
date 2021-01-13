@@ -16,11 +16,5 @@ trait CirceSphynxInstances {
     })
 
   implicit def circeEncoderLoggingContext[T: Encoder.AsObject]: LoggingContext[T] =
-    (arg: T) =>
-      new DeferredLogstashMarker(() => {
-        arg.asJsonObject.toIterable.foldLeft(Markers.empty()) {
-          case (marker, (k, v)) =>
-            marker.and(Markers.append(k, circeToJackson(v)))
-        }
-      })
+    (arg: T) => circeJsonLoggingContext.encode(arg.asJsonObject)
 }

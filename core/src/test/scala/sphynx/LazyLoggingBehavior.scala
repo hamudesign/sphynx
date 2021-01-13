@@ -14,21 +14,21 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockErrorEnabledLogger(msg))
         .error(msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log error level log given message and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockErrorEnabledLogger(msg, cause))
         .error(msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log error level log given marker and message" in {
       val marker = MarkerFactory.getDetachedMarker("test")
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockErrorEnabledLogger(marker, msg))
         .markedError(marker, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log error level log given marker, message, and cause" in {
       val marker = MarkerFactory.getDetachedMarker("test")
@@ -36,7 +36,7 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val cause = new Exception("Expected error")
       factory(mockErrorEnabledLogger(marker, msg, cause))
         .markedError(marker, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 
@@ -45,21 +45,21 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockErrorDisabledLogger)
         .error(msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log error level log given message and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockErrorDisabledLogger)
         .error(msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log error level log given marker and message" in {
       val marker = MarkerFactory.getDetachedMarker("test")
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockErrorDisabledLogger(marker))
         .markedError(marker, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log error level log given marker, message, and cause" in {
       val marker = MarkerFactory.getDetachedMarker("test")
@@ -67,7 +67,7 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val cause = new Exception("Expected error")
       factory(mockErrorDisabledLogger(marker))
         .markedError(marker, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 
@@ -76,21 +76,21 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockWarnEnabledLogger(msg))
         .warn(msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log warn level log given message and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockWarnEnabledLogger(msg, cause))
         .warn(msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log warn level log given marker and message" in {
       val marker = MarkerFactory.getDetachedMarker("test")
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockWarnEnabledLogger(marker, msg))
         .markedWarn(marker, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log warn level log given marker, message, and cause" in {
       val marker = MarkerFactory.getDetachedMarker("test")
@@ -98,7 +98,7 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val cause = new Exception("Expected error")
       factory(mockWarnEnabledLogger(marker, msg, cause))
         .markedWarn(marker, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 
@@ -107,21 +107,21 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockWarnDisabledLogger)
         .warn(msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log warn level log given message and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockWarnDisabledLogger)
         .warn(msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log warn level log given marker and message" in {
       val marker = MarkerFactory.getDetachedMarker("test")
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockWarnDisabledLogger(marker))
         .markedWarn(marker, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log warn level log given marker, message, and cause" in {
       val marker = MarkerFactory.getDetachedMarker("test")
@@ -129,7 +129,7 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val cause = new Exception("Expected error")
       factory(mockWarnDisabledLogger(marker))
         .markedWarn(marker, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 
@@ -138,21 +138,21 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockInfoEnabledLogger(msg))
         .info(msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log info level log given message and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockInfoEnabledLogger(msg, cause))
         .info(msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log info level log given marker and message" in {
       val marker = MarkerFactory.getDetachedMarker("test")
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockInfoEnabledLogger(marker, msg))
         .markedInfo(marker, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log info level log given marker, message, and cause" in {
       val marker = MarkerFactory.getDetachedMarker("test")
@@ -160,7 +160,7 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val cause = new Exception("Expected error")
       factory(mockInfoEnabledLogger(marker, msg, cause))
         .markedInfo(marker, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 
@@ -169,21 +169,21 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockInfoDisabledLogger)
         .info(msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log info level log given message and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockInfoDisabledLogger)
         .info(msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log info level log given marker and message" in {
       val marker = MarkerFactory.getDetachedMarker("test")
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockInfoDisabledLogger(marker))
         .markedInfo(marker, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log info level log given marker, message, and cause" in {
       val marker = MarkerFactory.getDetachedMarker("test")
@@ -191,7 +191,7 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val cause = new Exception("Expected error")
       factory(mockInfoDisabledLogger(marker))
         .markedInfo(marker, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 
@@ -200,21 +200,21 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockDebugEnabledLogger(msg))
         .debug(msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log debug level log given message and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockDebugEnabledLogger(msg, cause))
         .debug(msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log debug level log given marker and message" in {
       val marker = MarkerFactory.getDetachedMarker("test")
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockDebugEnabledLogger(marker, msg))
         .markedDebug(marker, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log debug level log given marker, message, and cause" in {
       val marker = MarkerFactory.getDetachedMarker("test")
@@ -222,7 +222,7 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val cause = new Exception("Expected error")
       factory(mockDebugEnabledLogger(marker, msg, cause))
         .markedDebug(marker, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 
@@ -231,21 +231,21 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockDebugDisabledLogger)
         .debug(msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log debug level log given message and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockDebugDisabledLogger)
         .debug(msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log debug level log given marker and message" in {
       val marker = MarkerFactory.getDetachedMarker("test")
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockDebugDisabledLogger(marker))
         .markedDebug(marker, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log debug level log given marker, message, and cause" in {
       val marker = MarkerFactory.getDetachedMarker("test")
@@ -253,7 +253,7 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val cause = new Exception("Expected error")
       factory(mockDebugDisabledLogger(marker))
         .markedDebug(marker, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 
@@ -262,21 +262,21 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockTraceEnabledLogger(msg))
         .trace(msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log trace level log given message and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockTraceEnabledLogger(msg, cause))
         .trace(msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log trace level log given marker and message" in {
       val marker = MarkerFactory.getDetachedMarker("test")
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockTraceEnabledLogger(marker, msg))
         .markedTrace(marker, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "log trace level log given marker, message, and cause" in {
       val marker = MarkerFactory.getDetachedMarker("test")
@@ -284,7 +284,7 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val cause = new Exception("Expected error")
       factory(mockTraceEnabledLogger(marker, msg, cause))
         .markedTrace(marker, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 
@@ -293,21 +293,21 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockTraceDisabledLogger)
         .trace(msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log trace level log given message and cause" in {
       val msg = Random.alphanumeric.take(10).mkString
       val cause = new Exception("Expected error")
       factory(mockTraceDisabledLogger)
         .trace(msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log trace level log given marker and message" in {
       val marker = MarkerFactory.getDetachedMarker("test")
       val msg = Random.alphanumeric.take(10).mkString
       factory(mockTraceDisabledLogger(marker))
         .markedTrace(marker, msg)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
     "not log trace level log given marker, message, and cause" in {
       val marker = MarkerFactory.getDetachedMarker("test")
@@ -315,7 +315,7 @@ trait LazyLoggingBehavior extends MockFactory with LoggingSimulation { this: Any
       val cause = new Exception("Expected error")
       factory(mockTraceDisabledLogger(marker))
         .markedTrace(marker, msg, cause)
-        .unsafeRunSync
+        .unsafeRunSync()
     }
   }
 
